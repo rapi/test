@@ -16,12 +16,12 @@ class IssuesTable extends Component {
     return <Table celled>
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell>Issue Number</Table.HeaderCell>
-            <Table.HeaderCell>Title</Table.HeaderCell>
-            <Table.HeaderCell>Created At</Table.HeaderCell>
-            <Table.HeaderCell>Updated At</Table.HeaderCell>
-            <Table.HeaderCell>Labels</Table.HeaderCell>
-            <Table.HeaderCell>State</Table.HeaderCell>
+            <Table.HeaderCell width={1}> Issue Number</Table.HeaderCell>
+            <Table.HeaderCell width={6}>Title</Table.HeaderCell>
+            <Table.HeaderCell width={1}>Created At</Table.HeaderCell>
+            <Table.HeaderCell width={1}>Updated At</Table.HeaderCell>
+            <Table.HeaderCell width={2}>Labels</Table.HeaderCell>
+            <Table.HeaderCell width={1}>State</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body>

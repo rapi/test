@@ -6,11 +6,11 @@ import PropTypes from 'prop-types';
 import { Container} from 'semantic-ui-react'
 
 //Components
-import MoreButton from '../Buttons/More'
-import InlineLoader from '../Loader/Inline'
-import Notice from '../Error/Notice'
-import FullLoader from '../Loader/Full'
-import IssuesTable from './Table'
+import MoreButton from 'components/Buttons/More'
+import InlineLoader from 'components/Loader/Inline'
+import Notice from 'components/Error/Notice'
+import FullLoader from 'components/Loader/Full'
+import IssuesTable from 'components/Issues/Table'
 /**
  *
  * Fetch and display list of issues
