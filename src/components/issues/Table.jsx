@@ -4,6 +4,7 @@ import {
   Table,
   Loader,
   Container,
+  Header,
   Dimmer 
 } from 'semantic-ui-react'
 
@@ -24,23 +25,29 @@ class App extends Component {
       loading:true
     })
     fetch('https://api.github.com/repos/facebook/react/issues?page='+page)
-      .then(e=>e.json())
-      .then(e=>{
+      .then(response=>response.json())
+      .then(data=>{
+        if(data.message)throw new  Error(data.message)
         this.setState({
           ...this.state,
           loading:false,
           //Filter fields for saving space in state
-          data:this.state.data.concat(e.map(el=>({
+          data:this.state.data.concat(data.map(el=>({
             number:el.number,
             title:el.title,
-            updated_at:el.updated_at,
-            created_at:el.created_at,
-            //we need just label names
+            updated_at:el.updated_at.split('T')[0],
+            created_at:el.created_at.split('T')[0],
+            // we need just label names
             labels:el.labels.map(label=>label.name),
             state:el.state
           })))
         })
       })
+      .catch(error=>this.setState({
+        ...this.state,
+        error:error+'',
+        loading:false
+      }))
   }
   componentDidMount(){
     //Fetch first page
@@ -50,6 +57,10 @@ class App extends Component {
     if(this.state.loading && this.state.page===1) return <Dimmer active inverted>
       <Loader inverted>Loading</Loader>
     </Dimmer>;
+    if(this.state.error)return  <Header as='h2' icon textAlign='center'>
+      <Icon name='bell' circular />
+      <Header.Content>{this.state.error}</Header.Content>
+    </Header>
     return  <>
       <Table celled>
         <Table.Header>
