@@ -26,5 +26,9 @@
 ### What can I do
 * Implement input of fetched repository
 * Scroll to current page after refresh
+* Implement Sorting 
+* Implement order 
+* Implement search 
 * Implement Redux 
 * Customise styles
+* Use https://github.com/github/fetch for old browsers
