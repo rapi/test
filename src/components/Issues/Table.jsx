@@ -1,9 +1,7 @@
-import React,{ Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
-import { 
-  Table,
-} from 'semantic-ui-react'
+import { Table } from "semantic-ui-react";
 /**
  *
  *  Display list of issues
@@ -12,8 +10,8 @@ import {
  */
 class IssuesTable extends Component {
   render() {
-
-    return <Table celled>
+    return (
+      <Table celled>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell width={1}> Issue Number</Table.HeaderCell>
@@ -25,22 +23,22 @@ class IssuesTable extends Component {
           </Table.Row>
         </Table.Header>
         <Table.Body>
-            {this.props.list.map(issue=>
+          {this.props.list.map(issue => (
             <Table.Row key={issue.number}>
-                <Table.Cell>{issue.number}</Table.Cell>
-                <Table.Cell>{issue.title}</Table.Cell>
-                <Table.Cell>{issue.created_at}</Table.Cell>
-                <Table.Cell>{issue.updated_at}</Table.Cell>
-                <Table.Cell>{issue.labels.join(', ')}</Table.Cell>
-                <Table.Cell>{issue.state}</Table.Cell>
+              <Table.Cell>{issue.number}</Table.Cell>
+              <Table.Cell>{issue.title}</Table.Cell>
+              <Table.Cell>{issue.created_at}</Table.Cell>
+              <Table.Cell>{issue.updated_at}</Table.Cell>
+              <Table.Cell>{issue.labels.join(", ")}</Table.Cell>
+              <Table.Cell>{issue.state}</Table.Cell>
             </Table.Row>
-            )}
+          ))}
         </Table.Body>
-    </Table>
-
+      </Table>
+    );
   }
 }
-IssuesTable.propTypes={
-  list:PropTypes.array.isRequired,
-}
+IssuesTable.propTypes = {
+  list: PropTypes.array.isRequired
+};
 export default IssuesTable;

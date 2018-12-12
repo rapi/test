@@ -1,8 +1,6 @@
-import React from 'react'
-import { 
-    Loader,
-  } from 'semantic-ui-react'
+import React from "react";
+import { Loader } from "semantic-ui-react";
 /*
-* inline loading
-*/
-export default ()=><Loader active inline='centered' />
+ * inline loading
+ */
+export default () => <Loader active inline="centered" />;
